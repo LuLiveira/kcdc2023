@@ -1,0 +1,44 @@
+.
+|____kcdc-java20
+| |____pom.xml
+| |____src
+| | |____main
+| | | |____java
+| | | | |____conf
+| | | | | |____PaymentType.java
+| | | | | |____AllowedPerson.java
+| | | | | |____App.java
+| | | | | |____Session.java
+| | | | | |____Conference.java
+| | | | | |____Seeder.java
+| | | | | |____Constants.java
+|____pom.xml
+|____README.adoc
+|____.gitignore
+|____kcdc-java8
+| |____pom.xml
+| |____src
+| | |____main
+| | | |____java
+| | | | |____conf
+| | | | | |____PaymentType.java
+| | | | | |____AllowedPerson.java
+| | | | | |____App.java
+| | | | | |____Session.java
+| | | | | |____Conference.java
+| | | | | |____Seeder.java
+| | | | | |____Constants.java
+|____toolchains.xml
+|____assets
+| |____images
+| | |____Duke_Wave_Dark.png
+| |____docs
+|____tree.txt
+|____.idea
+| |____encodings.xml
+| |____jarRepositories.xml
+| |____.gitignore
+| |____checkstyle-idea.xml
+| |____workspace.xml
+| |____misc.xml
+| |____compiler.xml
