@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class Constants {
 
-    //FIX ME: 3. Replace with a text block
+    //FIX ME: 3a. Replace with a text block
     public static final String ATTENDEE_EMAIL =
             """
                     Welcome to this year's conference! We're excited you are attending!!! " +
@@ -20,7 +20,7 @@ public class Constants {
                     We really look forward to seeing you here and hope you get to both learn as well as enjoy our conference!
                     """;
 
-    //FIX ME: 3. Replace with indentation-based text block
+    //FIX ME: 3b. Replace with indentation-based text block
     public static final String SPEAKER_EMAIL =
             """
                         Welcome to this year's conference! We're grateful you are speaking!!!\s

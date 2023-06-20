@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class Constants {
 
-    //FIXME: 3. Replace with a text block
+    //FIXME: 3a. Replace with a text block
     public static final String ATTENDEE_EMAIL = "Welcome to this year's conference! " +
             "We're excited you are attending!!! " +
             "\nHere is a list of things to know." +
@@ -18,7 +18,7 @@ public class Constants {
             "\n\tCode of coduct: https://marsdev.io/code-of-conduct" +
             "\nWe really look forward to seeing you here and hope you get to both learn as well as enjoy our conference!";
 
-    //FIXME: 3. Replace with indentation-based text block
+    //FIXME: 3b. Replace with indentation-based text block
     public static final String SPEAKER_EMAIL = "Welcome to this year's conference! " +
             "\tWe're grateful you are speaking!!! " +
             "\n\tHere is a list of things to know." +
@@ -27,7 +27,6 @@ public class Constants {
             "\n\t\tSpeaker swag and speaker dinner (requires login): https://mardev.io/restricted/speaker-info" +
             "\n\t\tCode of coduct: https://marsdev.io/code-of-conduct" +
             "\nWe really look forward to seeing you here and hope you enjoy our conference!";
-
 
     public static final Set<String> SHIRT_SIZES;
     public static final Set<String> HAT_SIZES;
