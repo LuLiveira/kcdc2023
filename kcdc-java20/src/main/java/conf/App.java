@@ -36,7 +36,7 @@ public class App {
 
         System.out.println(theConference);
 
-        System.out.println("Attendee email: ");
+        System.out.println("\nAttendee email: ");
         System.out.println(ATTENDEE_EMAIL);
         System.out.println();
         System.out.println("Indented Speaker email: ");
@@ -164,7 +164,7 @@ public class App {
                 case PAYPAL -> 0.11D;
             };
         }
-        System.out.println("Total payment-processing fees: USD[" + String.format("%,.2f", processingFee) + "]");
+        System.out.println("\nTotal payment-processing fees: USD[" + String.format("%,.2f", processingFee) + "]\n");
     }
 
     /**
@@ -280,7 +280,7 @@ public class App {
     static void displaySessionDetails(Object object) {
         //FIX ME: 8. Use a record pattern
         if (object instanceof Session(String title, String x, Speaker speaker)) {
-            System.out.println("The most voted session: [" +
+            System.out.println("\nThe most voted session: [" +
                     title +
                     "] by [" +
                     speaker.firstName +

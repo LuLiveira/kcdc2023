@@ -18,7 +18,7 @@ public class Constants {
     //FIX ME: 3a. Replace with a text block
     public static final String ATTENDEE_EMAIL =
             """
-            Welcome to this year's conference! We're excited you are attending!!! " 
+            Welcome to this year's conference! We're excited you are attending!!!
             Here is a list of things to know:
                 Schedule is located at: https://marsdev.io/schedule
                 Speakers can be viewed at: https://marsdev.io/speakers
@@ -27,6 +27,13 @@ public class Constants {
             We really look forward to seeing you here and hope you get to both learn as well as enjoy our conference!
             """;
 
+    /**
+     * The below text is not easy to copy/paste or modify, given the
+     * string concatenation and "nested" indentation. The fix is to replace
+     * this concatenation with a modern Java text block syntax.
+     * It uses a set of three single quotes and indentation begins
+     * from the first line after the triple-quote.
+     */
     //FIX ME: 3b. Replace with indentation-based text block
     public static final String SPEAKER_EMAIL =
             """

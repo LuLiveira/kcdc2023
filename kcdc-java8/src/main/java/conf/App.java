@@ -38,7 +38,7 @@ public class App {
 
         System.out.println(theConference);
 
-        System.out.println("Attendee email: ");
+        System.out.println("\nAttendee email: ");
         System.out.println(ATTENDEE_EMAIL);
         System.out.println();
         System.out.println("Indented Speaker email: ");
@@ -174,7 +174,7 @@ public class App {
                     break;
             }
         }
-        System.out.println("Total payment-processing fees: USD[" + String.format("%,.2f", processingFee) + "]");
+        System.out.println("\nTotal payment-processing fees: USD[" + String.format("%,.2f", processingFee) + "]\n");
     }
 
     /**
@@ -198,7 +198,6 @@ public class App {
         allowedWinnerPool.addAll(
                 theConference.getVendorSponsors().stream().map(VendorSponsor::getUniqueId).collect(Collectors.toList()));
         int[] winners = {-1, -1, -1};
-        int winner1 = ThreadLocalRandom.current().nextInt(0, allowedWinnerPool.size());
         for (int i = 0; i < winners.length; i++) {
             winners[i] = ThreadLocalRandom.current().nextInt(0, allowedWinnerPool.size());
         }
@@ -305,7 +304,7 @@ public class App {
             String title = session.getSessionTitle();
             Speaker speaker = session.getMainSpeakerModerator();
 
-            System.out.println("The most voted session: [" +
+            System.out.println("\nThe most voted session: [" +
                     title +
                     "] by [" +
                     speaker.firstName +
