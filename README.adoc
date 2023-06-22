@@ -19,7 +19,7 @@ endif::[]
 
 [caption=" ", .center, cols="<40%, ^20%, >40%", width=95%, grid=none, frame=none]
 |===
-| link:assets/docs/AboutRodrigoGraciano.adoc[#Rodrigo Graciano#]
 | &nbsp;
-| link:assets/docs/AboutChandraGuntur.adoc[#Chandra Guntur#]
+| link:assets/docs/AboutUs.adoc[#About Us#]
+| link:assets/docs/HowToSetup.adoc[#How to set up the project#]
 |===

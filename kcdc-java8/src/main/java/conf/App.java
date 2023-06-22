@@ -293,7 +293,7 @@ public class App {
      * NOTE: This method highlights the usage of a
      *       record deconstruction pattern
      *
-     * @param object An object that is inteded to be a
+     * @param object An object that is intended to be a
      *               Session instance
      */
     static void displaySessionDetails(Object object) {
@@ -324,10 +324,13 @@ public class App {
      */
     private static void showNullPointerException() {
         Conference fakeConference = new Conference("fake", "fake", Year.now(), "fake");
-        Session session = new Session("fake", "fake", new Speaker(null, "fake", "fake"));
+        Session session = new Session(
+                "fake", "fake", new Speaker(null, "fake", "fake"));
         Set<Session> sessions = new HashSet<>();
         sessions.add(session);
         fakeConference.setSessions(sessions);
-        Object aSpeakerFirstNameLength = ((Session) fakeConference.getSessions().toArray()[0]).getMainSpeakerModerator().firstName.length();
+        Object aSpeakerFirstNameLength =
+                ((Session) fakeConference.getSessions().
+                        toArray()[0]).getMainSpeakerModerator().firstName.length();
     }
 }

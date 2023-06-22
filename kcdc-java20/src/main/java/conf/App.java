@@ -184,9 +184,9 @@ public class App {
         allowedWinnerPool.addAll(
                 theConference.getAttendees().stream().map(Attendee::getUniqueId).toList());
         allowedWinnerPool.addAll(
-                theConference.getVendorSponsors().stream().map(VendorSponsor::getUniqueId).toList());
-        allowedWinnerPool.addAll(
                 theConference.getSpeakers().stream().map(Speaker::getUniqueId).toList());
+        allowedWinnerPool.addAll(
+                theConference.getVendorSponsors().stream().map(VendorSponsor::getUniqueId).toList());
         int[] winners = {-1, -1, -1};
         for (int i = 0; i < winners.length; i++) {
             winners[i] = ThreadLocalRandom.current().nextInt(0, allowedWinnerPool.size());
@@ -274,7 +274,7 @@ public class App {
      * NOTE: This method highlights the usage of a
      *       record deconstruction pattern
      *
-     * @param object An object that is inteded to be a
+     * @param object An object that is intended to be a
      *               Session instance
      */
     static void displaySessionDetails(Object object) {
@@ -303,6 +303,8 @@ public class App {
         Session session = new Session("fake", "fake", new Speaker(null, "fake", "fake"));
         Set<Session> sessions = Set.of(session);
         fakeConference.setSessions(sessions);
-        Object aSpeakerFirstNameLength = ((Session) fakeConference.getSessions().toArray()[0]).mainSpeakerModerator().firstName.length();
+        Object aSpeakerFirstNameLength =
+                ((Session) fakeConference.getSessions().
+                        toArray()[0]).mainSpeakerModerator().firstName.length();
     }
 }
