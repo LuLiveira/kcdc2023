@@ -53,8 +53,10 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.11.0</version>
                     <configuration>
+                        <!-- FIXME 0. Change to the Java 20 and uncomment an enable-preview compilerArgs-->
                         <source>8</source>
                         <target>8</target>
+<!--                        <compilerArgs>&#45;&#45;enable-preview</compilerArgs>-->
                     </configuration>
                 </plugin>
             </plugins>

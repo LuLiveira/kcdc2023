@@ -37,7 +37,7 @@ public class Constants {
     //FIX ME: 3b. Replace with indentation-based text block
     public static final String SPEAKER_EMAIL =
             """
-                        Welcome to this year's conference! We're grateful you are speaking!!!\s
+                        Welcome to this year's conference! We're grateful you are speaking!!!
                         Here is a list of things to know:
                             Schedule is located at: https://marsdev.io/schedule
                             Speakers can be viewed at: https://marsdev.io/speakers

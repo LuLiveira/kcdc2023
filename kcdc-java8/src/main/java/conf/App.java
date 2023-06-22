@@ -20,7 +20,7 @@ public class App {
      * NOTE: Future versions of Java will auto-box primitives.
      *       Forced boxing will be removed.
      */
-    //FIX ME: 0. Replace redundant boxing
+    //FIXME: 0. Replace redundant boxing
     public static final Integer ZERO_INTEGER = new Integer(0);
 
     /**
@@ -250,14 +250,14 @@ public class App {
             }
             if (allowedPerson instanceof VendorSponsor) {
                 VendorSponsor vendorSponsor = (VendorSponsor) allowedPerson;
-                System.out.println("Winner is a vendor/sponsor: " +
-                        vendorSponsor.getFirstName() + " " + vendorSponsor.getLastName() +
-                        ", booth: " + vendorSponsor.getBoothName());
+                        System.out.println("Winner is a vendor/sponsor: " +
+                                vendorSponsor.getFirstName() + " " + vendorSponsor.getLastName() +
+                                ", booth: " + vendorSponsor.getBoothName());
                 allowedPersonFound = true;
             }
             if (!allowedPersonFound) {
                 throw new IllegalStateException("Person not allowed: " + allowedPerson);
-            }
+        }
         }
     }
 
