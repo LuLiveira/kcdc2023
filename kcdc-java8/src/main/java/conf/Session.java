@@ -1,5 +1,16 @@
 package conf;
 
+/**
+ * Replace the entire class with a more modern Record.
+ * This replaces the need for a constructor, getters
+ * (no setters since the Session declares all its
+ * attributes as final). A toString(), equals() and
+ * a hashcode() method are also implicitly generated
+ * for the record.
+ *
+ * NOTE: This example highlights the usage of a record to replace the
+ *       boilerplate of a plain Java class.
+ */
 //FIXME: 6. Convert to record
 public class Session {
     private final String sessionTitle;

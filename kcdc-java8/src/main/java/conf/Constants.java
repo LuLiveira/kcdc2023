@@ -8,6 +8,13 @@ import java.util.stream.Stream;
 
 public class Constants {
 
+    /**
+     * The below text is not easy to copy/paste or modify, given the
+     * string concatenation and indentation. The fix is to replace
+     * this concatenation with a modern Java text block syntax.
+     * It uses a set of three single quotes and indentation begins
+     * from the first line after the triple-quote.
+     */
     //FIXME: 3a. Replace with a text block
     public static final String ATTENDEE_EMAIL = "Welcome to this year's conference! " +
             "We're excited you are attending!!! " +
@@ -18,6 +25,13 @@ public class Constants {
             "\n\tCode of coduct: https://marsdev.io/code-of-conduct" +
             "\nWe really look forward to seeing you here and hope you get to both learn as well as enjoy our conference!";
 
+    /**
+     * The below text is not easy to copy/paste or modify, given the
+     * string concatenation and "nested" indentation. The fix is to replace
+     * this concatenation with a modern Java text block syntax.
+     * It uses a set of three single quotes and indentation begins
+     * from the first line after the triple-quote.
+     */
     //FIXME: 3b. Replace with indentation-based text block
     public static final String SPEAKER_EMAIL = "Welcome to this year's conference! " +
             "\tWe're grateful you are speaking!!! " +
@@ -32,12 +46,20 @@ public class Constants {
     public static final Set<String> HAT_SIZES;
 
     static {
+        // Create shirt sizes as a Set.
         SHIRT_SIZES = Stream.of("XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL")
                 .collect(Collectors.toCollection(HashSet::new));
+
+        // Create hat sizes as a Set.
         HAT_SIZES = Stream.of("S/M", "L", "XL")
                 .collect(Collectors.toCollection(HashSet::new));
     }
 
+    /**
+     * Pull a random shirt size from the set.
+     *
+     * @return - String - a random shirt size
+     */
     public static String randomShirtSize() {
         int i = ThreadLocalRandom.current().nextInt(0, SHIRT_SIZES.size());
         int counter = 0;
@@ -50,6 +72,11 @@ public class Constants {
         return "";
     }
 
+    /**
+     * Pull a random hat size from the set.
+     *
+     * @return - String - a random hat size
+     */
     public static String randomHatSize() {
         int i = ThreadLocalRandom.current().nextInt(0, HAT_SIZES.size());
         int counter = 0;

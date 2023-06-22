@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * This class seeds a conference and its nested structure.
+ */
 public class Seeder {
     private Faker faker = new Faker();
 

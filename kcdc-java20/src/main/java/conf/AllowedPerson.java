@@ -2,6 +2,18 @@ package conf;
 
 import java.util.UUID;
 
+/**
+ * Java has a problem with extremes when it comes to extension.
+ * In the past, either a class was final (so no extension) or
+ * "open" which implied infinite extensions, such as InvalidAttendee
+ * here. With the more modern "sealed" classes it is possible to
+ * create a more controlled and finite hierarchy for extensions.
+ * In this example, Attendee, Speaker, Staff and VendorSponsor are
+ * all allowed extensions, while InvalidAttendee needs to be
+ * commented out.
+ *
+ * NOTE: This class hierarchy shows the usage of sealed classes
+ */
 //FIX ME: 7. Convert to Sealed type
 public sealed class AllowedPerson permits Attendee, Speaker, Staff, VendorSponsor {
     protected String firstName;
