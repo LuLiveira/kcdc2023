@@ -7,7 +7,7 @@ package conf;
  * attributes as final). A toString(), equals() and
  * a hashcode() method are also implicitly generated
  * for the record.
- *
+ * <p>
  * NOTE: This example highlights the usage of a record to replace the
  *       boilerplate of a plain Java class.
  */

@@ -25,7 +25,7 @@ public class App {
 
     /**
      * Orchestrates the conference creation, logistics and awards.
-     *
+     * <p>
      * NOTE: This method covers the usage of 'var' in Java
      *
      * @param args Command line arguments (not used in this instance)
@@ -160,7 +160,7 @@ public class App {
     static void displayPaymentInvoicing(Conference theConference) {
         double processingFee = 0.0D;
         for (Attendee attendee : theConference.getAttendees()) {
-            // FIXME: 2. Replace with switch expression
+            //FIXME: 2. Replace with switch expression
             switch (attendee.getPaymentType()) {
                 case AMEX:
                     processingFee += 0.10D;
@@ -183,7 +183,7 @@ public class App {
      * If the winner is an Attendee: Print firstname, lastName and paymentType
      * If the winner is a Speaker: Print firstname, lastName and shirtSize
      * If the winner is a VendorSponsor: Print firstname, lastName and boothName
-     *
+     * <p>
      * NOTE: This method show-cases a switch-case pattern matching.
      *
      * @param theConference - the current conference
@@ -257,14 +257,14 @@ public class App {
             }
             if (!allowedPersonFound) {
                 throw new IllegalStateException("Person not allowed: " + allowedPerson);
-        }
+            }
         }
     }
 
     /**
      * Determine the most voted session in the conference.
      * Uses a random number to pick one from a list of sessions.
-     *
+     * <p>
      * NOTE: This method show-cases the getter method signature
      *   change for Record instances.
      * @param theConference - the current conference
@@ -289,7 +289,7 @@ public class App {
     /**
      * Print the details of a session, passed in as an Object:
      * the session title, speaker first and last name.
-     *
+     * <p>
      * NOTE: This method highlights the usage of a
      *       record deconstruction pattern
      *
@@ -318,7 +318,7 @@ public class App {
      * the main method are uncommented. This code is
      * only used to display the change in exception
      * stack trace between Java 8 and post-Java 14.
-     *
+     * <p>
      * NOTE: This method ONLY exists to highlight
      *       "Helpful NullPointerException"
      */
@@ -329,6 +329,7 @@ public class App {
         Set<Session> sessions = new HashSet<>();
         sessions.add(session);
         fakeConference.setSessions(sessions);
+        //FIXME: 6. Replace to a Record getter
         Object aSpeakerFirstNameLength =
                 ((Session) fakeConference.getSessions().
                         toArray()[0]).getMainSpeakerModerator().firstName.length();

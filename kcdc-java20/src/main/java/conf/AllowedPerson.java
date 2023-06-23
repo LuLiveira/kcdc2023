@@ -11,7 +11,7 @@ import java.util.UUID;
  * In this example, Attendee, Speaker, Staff and VendorSponsor are
  * all allowed extensions, while InvalidAttendee needs to be
  * commented out.
- *
+ * <p>
  * NOTE: This class hierarchy shows the usage of sealed classes
  */
 //FIX ME: 7. Convert to Sealed type

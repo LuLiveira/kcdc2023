@@ -29,7 +29,7 @@ public class App {
      * @param args Command line arguments (not used in this instance)
      */
     public static void main(String[] args) {
-        //FIX ME: 0. Uncomment/Comment below code.
+        //FIX ME: 5. Uncomment/Comment below code.
         //showNullPointerException();
 
         Conference theConference = new Seeder().seed();
@@ -173,7 +173,7 @@ public class App {
      * If the winner is an Attendee: Print firstname, lastName and paymentType
      * If the winner is a Speaker: Print firstname, lastName and shirtSize
      * If the winner is a VendorSponsor: Print firstname, lastName and boothName
-     *
+     * <p>
      * NOTE: This method show-cases a switch-case pattern matching.
      *
      * @param theConference - the current conference
@@ -245,7 +245,7 @@ public class App {
     /**
      * Determine the most voted session in the conference.
      * Uses a random number to pick one from a list of sessions.
-     *
+     * <p>
      * NOTE: This method show-cases the getter method signature
      *   change for Record instances.
      * @param theConference - the current conference
@@ -270,7 +270,7 @@ public class App {
     /**
      * Print the details of a session, passed in as an Object:
      * the session title, speaker first and last name.
-     *
+     * <p>
      * NOTE: This method highlights the usage of a
      *       record deconstruction pattern
      *
@@ -294,7 +294,7 @@ public class App {
      * the main method are uncommented. This code is
      * only used to display the change in exception
      * stack trace between Java 8 and post-Java 14.
-     *
+     * <p>
      * NOTE: This method ONLY exists to highlight
      *       "Helpful NullPointerException"
      */
@@ -303,6 +303,7 @@ public class App {
         Session session = new Session("fake", "fake", new Speaker(null, "fake", "fake"));
         Set<Session> sessions = Set.of(session);
         fakeConference.setSessions(sessions);
+        //FIX ME: 6. Replace to a Record getter
         Object aSpeakerFirstNameLength =
                 ((Session) fakeConference.getSessions().
                         toArray()[0]).mainSpeakerModerator().firstName.length();
