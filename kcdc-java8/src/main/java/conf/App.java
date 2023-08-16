@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 import static conf.Constants.ATTENDEE_EMAIL;
 import static conf.Constants.SPEAKER_EMAIL;
@@ -18,10 +17,10 @@ public class App {
 
     /**
      * NOTE: Future versions of Java will auto-box primitives.
-     *       Forced boxing will be removed.
+     * Forced boxing will be removed.
      */
-    //FIXME: 0. Replace redundant boxing
-    public static final Integer ZERO_INTEGER = new Integer(0);
+    //FIX ME: 0. Replace redundant boxing
+    public static final Integer ZERO_INTEGER = 0;
 
     /**
      * Orchestrates the conference creation, logistics and awards.
@@ -31,7 +30,7 @@ public class App {
      * @param args Command line arguments (not used in this instance)
      */
     public static void main(String[] args) {
-        //FIXME: 5. Uncomment/Comment below code.
+        //FIX ME: 5. Uncomment/Comment below code.
         //showNullPointerException();
 
         Conference theConference = new Seeder().seed();
@@ -44,13 +43,12 @@ public class App {
         System.out.println("Indented Speaker email: ");
         System.out.println(SPEAKER_EMAIL);
 
-        //FIXME: 1. Use var instead
-        Map<String, Integer> shirtCountMap = determineShirtCount(theConference);
+        //FIX ME: 1. Use var instead
+        var shirtCountMap = determineShirtCount(theConference);
         displayShirtCounts(shirtCountMap);
 
-        //FIXME: 1. Use var instead with null assignment
-        Map<String, Integer> hatCountMap = null;
-        hatCountMap = determineHatCount(theConference);
+        //FIX ME: 1. Use var instead with null assignment
+        var hatCountMap = determineHatCount(theConference);
         displayHatCounts(hatCountMap);
 
         displayPaymentInvoicing(theConference);
@@ -160,19 +158,12 @@ public class App {
     static void displayPaymentInvoicing(Conference theConference) {
         double processingFee = 0.0D;
         for (Attendee attendee : theConference.getAttendees()) {
-            //FIXME: 2. Replace with switch expression
-            switch (attendee.getPaymentType()) {
-                case AMEX:
-                    processingFee += 0.10D;
-                    break;
-                case VISA:
-                case MASTERCARD:
-                    processingFee += 0.08D;
-                    break;
-                case PAYPAL:
-                    processingFee += 0.11D;
-                    break;
-            }
+            //FIX ME: 2. Replace with switch expression
+            processingFee += switch (attendee.getPaymentType()) {
+                case AMEX -> 0.10D;
+                case VISA, MASTERCARD -> 0.08D;
+                case PAYPAL -> 0.11D;
+            };
         }
         System.out.println("\nTotal payment-processing fees: USD[" + String.format("%,.2f", processingFee) + "]\n");
     }
@@ -192,11 +183,11 @@ public class App {
         List<String> allowedWinnerPool = new ArrayList<>();
 
         allowedWinnerPool.addAll(
-                theConference.getAttendees().stream().map(Attendee::getUniqueId).collect(Collectors.toList()));
+                theConference.getAttendees().stream().map(Attendee::getUniqueId).toList());
         allowedWinnerPool.addAll(
-                theConference.getSpeakers().stream().map(Speaker::getUniqueId).collect(Collectors.toList()));
+                theConference.getSpeakers().stream().map(Speaker::getUniqueId).toList());
         allowedWinnerPool.addAll(
-                theConference.getVendorSponsors().stream().map(VendorSponsor::getUniqueId).collect(Collectors.toList()));
+                theConference.getVendorSponsors().stream().map(VendorSponsor::getUniqueId).toList());
         int[] winners = {-1, -1, -1};
         for (int i = 0; i < winners.length; i++) {
             winners[i] = ThreadLocalRandom.current().nextInt(0, allowedWinnerPool.size());
@@ -231,32 +222,22 @@ public class App {
             }
         }
 
-        boolean allowedPersonFound = false;
-        //FIXME: 4. Replace the below with a switch pattern-matched instanceof
+        //FIX ME: 4. Replace the below with a switch pattern-matched instanceof
         for (AllowedPerson allowedPerson : allowedPersonWinner) {
-            if (allowedPerson instanceof Attendee) {
-                Attendee attendee = (Attendee) allowedPerson;
-                System.out.println("Winner is an attendee: " +
+            switch (allowedPerson) {
+                case Attendee attendee -> System.out.println("Winner is an attendee: " +
                         attendee.getFirstName() + " " + attendee.getLastName() +
                         ", payment: " + attendee.getPaymentType());
-                allowedPersonFound = true;
-            }
-            if (allowedPerson instanceof Speaker) {
-                Speaker speaker = (Speaker) allowedPerson;
-                System.out.println("Winner is a speaker: " +
+
+                case Speaker speaker -> System.out.println("Winner is a speaker: " +
                         speaker.getFirstName() + " " + speaker.getLastName() +
                         ", shirt size: " + speaker.getShirtSize());
-                allowedPersonFound = true;
-            }
-            if (allowedPerson instanceof VendorSponsor) {
-                VendorSponsor vendorSponsor = (VendorSponsor) allowedPerson;
-                        System.out.println("Winner is a vendor/sponsor: " +
-                                vendorSponsor.getFirstName() + " " + vendorSponsor.getLastName() +
-                                ", booth: " + vendorSponsor.getBoothName());
-                allowedPersonFound = true;
-            }
-            if (!allowedPersonFound) {
-                throw new IllegalStateException("Person not allowed: " + allowedPerson);
+
+                case VendorSponsor vendorSponsor -> System.out.println("Winner is a vendor/sponsor: " +
+                        vendorSponsor.getFirstName() + " " + vendorSponsor.getLastName() +
+                        ", booth: " + vendorSponsor.getBoothName());
+
+                default -> throw new IllegalStateException("Person not allowed: " + allowedPerson);
             }
         }
     }
@@ -266,21 +247,22 @@ public class App {
      * Uses a random number to pick one from a list of sessions.
      * <p>
      * NOTE: This method show-cases the getter method signature
-     *   change for Record instances.
+     * change for Record instances.
+     *
      * @param theConference - the current conference
      */
     static void displayMostVotedSession(Conference theConference) {
         //FIXME: 6. Replace to a Record getter and
         //          upgrade to a toList() instead of Collectors.toList()
         List<String> sessions = theConference.getSessions().stream().
-                map(Session::getSessionTitle).collect(Collectors.toList());
+                map(Session::sessionTitle).toList();
 
         String mostVotedSessionTitle = sessions.get(
                 ThreadLocalRandom.current().nextInt(0, sessions.size()));
 
         //FIXME: 6. Replace to a Record getter
         Optional<Session> sessionObject = theConference.getSessions().stream()
-                .filter(session -> session.getSessionTitle().equals(mostVotedSessionTitle))
+                .filter(session -> session.sessionTitle().equals(mostVotedSessionTitle))
                 .findFirst();
 
         sessionObject.ifPresent(App::displaySessionDetails);
@@ -291,18 +273,16 @@ public class App {
      * the session title, speaker first and last name.
      * <p>
      * NOTE: This method highlights the usage of a
-     *       record deconstruction pattern
+     * record deconstruction pattern
      *
      * @param object An object that is intended to be a
      *               Session instance
      */
     static void displaySessionDetails(Object object) {
-        //FIXME: 8. Use a record pattern
-        if (object instanceof Session) {
-            Session session = (Session) object;
-
-            String title = session.getSessionTitle();
-            Speaker speaker = session.getMainSpeakerModerator();
+        //FIX ME: 8. Use a record pattern
+        if (object instanceof Session(String title, String sessionAbstract, Speaker speaker)) {
+//            String title = session.sessionTitle();
+//            Speaker speaker = session.mainSpeakerModerator();
 
             System.out.println("\nThe most voted session: [" +
                     title +
@@ -320,7 +300,7 @@ public class App {
      * stack trace between Java 8 and post-Java 14.
      * <p>
      * NOTE: This method ONLY exists to highlight
-     *       "Helpful NullPointerException"
+     * "Helpful NullPointerException"
      */
     private static void showNullPointerException() {
         Conference fakeConference = new Conference("fake", "fake", Year.now(), "fake");
@@ -329,9 +309,9 @@ public class App {
         Set<Session> sessions = new HashSet<>();
         sessions.add(session);
         fakeConference.setSessions(sessions);
-        //FIXME: 6. Replace to a Record getter
+        //FIX ME: 6. Replace to a Record getter
         Object aSpeakerFirstNameLength =
                 ((Session) fakeConference.getSessions().
-                        toArray()[0]).getMainSpeakerModerator().firstName.length();
+                        toArray()[0]).mainSpeakerModerator().firstName.length();
     }
 }

@@ -14,13 +14,10 @@ import java.util.UUID;
  * <p>
  * NOTE: This class hierarchy shows the usage of sealed classes
  */
-//FIXME: 7. Convert to Sealed type
-public class AllowedPerson {
+//FIX ME: 7. Convert to Sealed type
+public sealed class AllowedPerson permits Attendee, Speaker, VendorSponsor, Staff {
     protected String firstName;
     protected String lastName;
-
-    public AllowedPerson() {
-    }
 
     public AllowedPerson(String firstName, String lastName) {
         this.firstName = firstName;
@@ -31,16 +28,8 @@ public class AllowedPerson {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     @Override
@@ -52,8 +41,8 @@ public class AllowedPerson {
     }
 }
 
-class Attendee extends AllowedPerson {
-    private PaymentType paymentType;
+final class Attendee extends AllowedPerson {
+    private final PaymentType paymentType;
     private final String uniqueId = UUID.randomUUID().toString();
 
     public Attendee(String firstName, String lastName, PaymentType paymentType) {
@@ -63,10 +52,6 @@ class Attendee extends AllowedPerson {
 
     public PaymentType getPaymentType() {
         return paymentType;
-    }
-
-    public void setPaymentType(PaymentType paymentType) {
-        this.paymentType = paymentType;
     }
 
     public String getUniqueId() {
@@ -83,8 +68,8 @@ class Attendee extends AllowedPerson {
     }
 }
 
-class Speaker extends AllowedPerson {
-    private String shirtSize;
+non-sealed class Speaker extends AllowedPerson {
+    private final String shirtSize;
     private final String uniqueId = UUID.randomUUID().toString();
 
     public Speaker(String firstName, String lastName, String shirtSize) {
@@ -94,10 +79,6 @@ class Speaker extends AllowedPerson {
 
     public String getShirtSize() {
         return shirtSize;
-    }
-
-    public void setShirtSize(String shirtSize) {
-        this.shirtSize = shirtSize;
     }
 
     public String getUniqueId() {
@@ -114,8 +95,8 @@ class Speaker extends AllowedPerson {
     }
 }
 
-class Staff extends AllowedPerson {
-    private String hatSize;
+non-sealed class Staff extends AllowedPerson {
+    private final String hatSize;
 
     public Staff(String firstName, String lastName, String hatSize) {
         super(firstName, lastName);
@@ -124,10 +105,6 @@ class Staff extends AllowedPerson {
 
     public String getHatSize() {
         return hatSize;
-    }
-
-    public void setHatSize(String hatSize) {
-        this.hatSize = hatSize;
     }
 
     @Override
@@ -140,8 +117,8 @@ class Staff extends AllowedPerson {
     }
 }
 
-class VendorSponsor extends AllowedPerson {
-    private String boothName;
+non-sealed class VendorSponsor extends AllowedPerson {
+    private final String boothName;
     private final String uniqueId = UUID.randomUUID().toString();
 
     public VendorSponsor(String firstName, String lastName, String boothName) {
@@ -151,10 +128,6 @@ class VendorSponsor extends AllowedPerson {
 
     public String getBoothName() {
         return boothName;
-    }
-
-    public void setBoothName(String boothName) {
-        this.boothName = boothName;
     }
 
     public String getUniqueId() {
@@ -171,10 +144,10 @@ class VendorSponsor extends AllowedPerson {
     }
 }
 
-//FIXME: 7. Show as not allowed in sealed hierarchy
-class InvalidAttendee extends AllowedPerson {
-    public InvalidAttendee(String firstName, String lastName) {
-        super(firstName, lastName);
-    }
-}
+//FIX ME: 7. Show as not allowed in sealed hierarchy
+//class InvalidAttendee extends AllowedPerson {
+//    public InvalidAttendee(String firstName, String lastName) {
+//        super(firstName, lastName);
+//    }
+//}
 

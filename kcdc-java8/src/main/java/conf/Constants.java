@@ -15,15 +15,16 @@ public class Constants {
      * It uses a set of three single quotes and indentation begins
      * from the first line after the triple-quote.
      */
-    //FIXME: 3a. Replace with a text block
-    public static final String ATTENDEE_EMAIL =
-            "Welcome to this year's conference! " + "We're excited you are attending!!!" +
-            "\nHere is a list of things to know:" +
-            "\n\tSchedule is located at: https://marsdev.io/schedule" +
-            "\n\tSpeakers can be viewed at: https://marsdev.io/speakers" +
-            "\n\tOther activities and raffle details are available at: https://mardev.io/foryou" +
-            "\n\tCode of conduct: https://marsdev.io/code-of-conduct" +
-            "\nWe really look forward to seeing you here and hope you get to both learn as well as enjoy our conference!";
+    //FIX ME: 3a. Replace with a text block
+    public static final String ATTENDEE_EMAIL = """
+            Welcome to this year's conference! We're excited you are attending!!!
+            Here is a list of things to know:
+                Schedule is located at: https://marsdev.io/schedule
+                Speakers can be viewed at: https://marsdev.io/speakers
+                Other activities and raffle details are available at: https://mardev.io/foryou
+                Code of conduct: https://marsdev.io/code-of-conduct
+            We really look forward to seeing you here and hope you get to both learn as well as enjoy our conference!
+            """;
 
     /**
      * The below text is not easy to copy/paste or modify, given the
@@ -32,16 +33,18 @@ public class Constants {
      * It uses a set of three single quotes and indentation begins
      * from the first line after the triple-quote.
      */
-    //FIXME: 3b. Replace with indentation-based text block
+    //FIX ME: 3b. Replace with indentation-based text block
     public static final String SPEAKER_EMAIL =
-            "\tWelcome to this year's conference! " +
-            "\tWe're grateful you are speaking!!! " +
-            "\n\tHere is a list of things to know." +
-            "\n\t\tSchedule is located at: https://marsdev.io/schedule" +
-            "\n\t\tSpeakers can be viewed at: https://marsdev.io/speakers" +
-            "\n\t\tSpeaker swag and speaker dinner (requires login): https://mardev.io/restricted/speaker-info" +
-            "\n\t\tCode of conduct: https://marsdev.io/code-of-conduct" +
-            "\n\tWe really look forward to seeing you here and hope you enjoy our conference!";
+            """
+            Welcome to this year's conference!
+                We're grateful you are speaking!!!
+                Here is a list of things to know.
+                    Schedule is located at: https://marsdev.io/schedule
+                    Speakers can be viewed at: https://marsdev.io/speakers
+                    Speaker swag and speaker dinner (requires login): https://mardev.io/restricted/speaker-info
+                    Code of conduct: https://marsdev.io/code-of-conduct
+                We really look forward to seeing you here and hope you enjoy our conference!
+            """;
 
     public static final Set<String> SHIRT_SIZES;
     public static final Set<String> HAT_SIZES;
